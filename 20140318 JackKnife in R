@@ -1,0 +1,23 @@
+# JackKnife in R
+
+# first read in object -x
+
+x = read.table("s:/course/bios532/2014/resampling/jackr.txt", header = T)
+x
+
+attach(x)
+y
+
+y[-1] #gives all sample except the first one
+
+jack = numeric(20) #array declare
+jack
+
+for (i in 1:20) jack[i]= mean(y[-i])
+jack
+
+hist(jack)
+
+summary(jack)
+
+sd(jack)
