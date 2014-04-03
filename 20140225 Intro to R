@@ -1,0 +1,72 @@
+### http://cran.r-project.org/
+
+# this is a comment
+
+#################################
+
+# assign a scaler a value
+# this looks a little like iml in sas
+
+n1 = 15
+# all are called objects in R
+
+n1 # print out n1
+
+
+
+ex.one <- 3
+# <- is the same as =
+ex.one
+
+
+
+# R is case-SENSETIVE !!!
+Ex.one # will get error
+
+
+# Simple vector
+x = c (1,2,3,4)
+x
+
+
+# Simple Char Vector
+y = c("a","b")
+y
+
+
+# Simple Boolean Vector
+z = c(TRUE,FALSE,TRUE)
+z
+
+# Simple String Vector
+str = c("string1","string2")
+str
+
+
+# check overriding
+str = c("string3","string4")
+str
+
+class(y)
+class(str)
+
+?class
+
+help(class)
+
+
+
+x = c (1,2,3,4)
+mean(x)
+
+
+
+# will report NA
+ex= c(1,4,5,NA)
+mean(ex)
+
+
+# data to be 1 thru 10
+data = seq(1,10,1)
+#(from, to, gap)
+data
