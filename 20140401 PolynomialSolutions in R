@@ -1,0 +1,15 @@
+# 20140401 Polynomial Solutions
+
+
+polyroot(c(-1, -1, 0, 1))
+
+# lowest -> highest
+# ?polyroot
+
+polyroot(c(0))
+polyroot(c(1, 0, 1, 0, 1, 0, 1, 0, 1))
+
+
+# much simpler than in SAS
+
+
