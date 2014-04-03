@@ -1,0 +1,44 @@
+# Bootstraping in R
+
+# a library built-in called boot
+
+library(boot)
+
+# ?boot
+
+# first read in dataset
+
+xy = read.csv("s:/course/bios532/2014/resampling/bootreg.txt", h = T)
+# h=T says there is a header record with var names
+
+xy
+
+# get correlation
+cor(xy)
+
+# if you have weight then you have a different function
+
+# create object from bootstrapping
+# like doing proc surveyselect and proc corr and datastep;
+# does not create CI
+
+boot.out = boot(xy, corr, R = 1000, stype = "w")
+
+# args[] - data, function, replicates, create weight or freq variable(numberhits in sas)
+
+summary(boot.out)
+
+hist(boot.out$t)
+
+boot.ci(boot.out, conf = c(0.90, 0.95, 0.99), type = c("all"))
+# args[] - input, what alpha, what type of ci
+# gives you (Normal, Basic, Percentile, BCa) level
+
+mean(xy$x/xy$y)
+
+# create our own function in R for the mean using weights w
+# call this function ratio
+ratio = function(d,w) sum(d$x * w)/ sum(d$y * w)
+boot2.out = boot(xy, ratio, R = 999, stype = "w")
+
+boot.ci(boot2.out, conf = c(0.95), type= c("basic", "perc", "bca"))
